@@ -1,0 +1,6 @@
+pillow
+scipy
+torch==1.9.1+cu102
+torchvision==0.10.1+cu102
+torchaudio===0.9.1
+tqdm>=4.41.0,<5
