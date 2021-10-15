@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+		<!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title>Amanuensis | Image Classifier</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='animate.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='media-queries.css')}}">
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png')}}">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url_for('static', filename='apple-touch-icon-144-precomposed.png')}}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='apple-touch-icon-114-precomposed.png')}}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='apple-touch-icon-72-precomposed.png')}}">
+        <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='apple-touch-icon-57-precomposed.png')}}">
+
+    </head>
+
+    <body>
+
+		<!-- Javascript -->
+		
+        <script src="{{ url_for('static', filename='jquery-3.2.1.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='jquery-migrate-3.0.0.min.js')}}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='jquery.backstretch.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='wow.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='retina-1.1.0.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='waypoints.min.js')}}"></script>
+		<script src="{{ url_for('static', filename='scripts.js')}}"></script>
+		
+		<input type="hidden" id="settab" name="settab" value="{{set_tab}}">
+
+		<!-- Top menu -->
+		<nav class="navbar navbar-dark fixed-top navbar-expand-md navbar-no-bg">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Amanuensis - Caption It</a>
+			    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			        <span class="navbar-toggler-icon"></span>
+			    </button>
+			    <div class="collapse navbar-collapse" id="navbarNav">
+			        <ul class="navbar-nav ml-auto">
+			            <li class="nav-item">
+			                <a class="nav-link scroll-link" href="#top-content">Home</a>
+			            </li>
+			            <li class="nav-item">
+			                <a class="nav-link scroll-link" href="#services">Try It!</a>
+			            </li>
+			            <!-- <li class="nav-item">
+			                <a class="nav-link scroll-link" href="#about-us">About</a>
+			            </li>
+			            <li class="nav-item">
+			                <a class="nav-link scroll-link" href="#portfolio">Work</a>
+			            </li>
+			            <li class="nav-item">
+			                <a class="nav-link scroll-link" href="#testimonials">Clients</a>
+			            </li>
+			            <li class="nav-item">
+			                <a class="nav-link scroll-link" href="#blog">Blog</a> -->
+			            </li>
+			        </ul>
+			    </div>
+		    </div>
+		</nav>
+
+        <!-- Top content -->
+        <div class="top-content">
+            <div class="container">
+            	
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 text">
+                        <h1 class="wow fadeInLeftBig">Amanuensis - Classify It</h1>
+                        <div class="description wow fadeInLeftBig">
+                        	<p>
+                         	<b>Amanuensis</b> will help you classify your images to one of CIFAR 10 Classes, namely airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck!
+                        	</p>
+                        </div>
+                        <div class="top-big-link wow fadeInUp">
+                        	<a class="btn btn-primary btn-link-1 scroll-link" id="try" href="#services">Try It</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>            
+        </div>
+        
+        <!-- Services -->
+        <div class="services-container section-container services-show-container" id="services">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col services section-description wow fadeIn">
+	                    <h2>Classify It</h2>
+	                    <div class="divider-1 wow fadeInUp"><span></span></div>
+	                </div>
+				</div>
+
+				<form name="requestForm" action="" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+					<div class="row">
+						<div class="col-md-4 services-box wow fadeInUp">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="services-box-icon services-box-icon-input">
+										<label for="imageupload"><i class="fas fa-upload hand-hover" data-toggle="tooltip" title="Click to upload image"></i></label>
+										<input class="hand-hover" type='file' accept="image/*" name="imageupload" id='imageupload' style="display: none;" onchange="loadFile(event)">
+									</div>
+								</div>
+								<div class="col-md-8">
+									<h3>Step 1</h3>
+									<p>Click on the <b>Upload</b> button to upload your image.</p>
+									<p>Allowed image formats: png, jpg, jpeg</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 services-box wow fadeInDown">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="services-box-icon services-box-icon-input">
+										<label for="predict"><i class="fas fa-magic hand-hover" data-toggle="tooltip" title="Click to classify image"></i></label>
+										<input class="hand-hover" type="submit" id="predict" style="display: none;">
+									</div>
+								</div>
+								<div class="col-md-8">
+									<h3>Step 2</h3>
+									<p>Click on the <b>Wand</b> and Amanuensis would classify the image for you.</p>
+									<p>
+										{% with messages = get_flashed_messages() %}
+										{% if messages %}
+											<ul class="flashes" style="color: red;">
+											{% for message in messages %}
+											<li>{{ message }}</li>
+											{% endfor %}
+											</ul>
+										{% endif %}
+										{% endwith %}
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 services-box wow fadeInUp">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="services-box-icon">
+										<i class="fas fa-eye"></i>
+									</div>
+								</div>
+								<div class="col-md-8">
+									<h3>Step 3</h3>
+									<p>Ready to see some magic!</p>
+									<div class="card">
+										{% if image %}
+										<p class="card-img-top amanuensis_uploaded_image"><img src="data:image/*;base64,{{image}}" alt="about" id="input"></p>
+										{% else %}
+										<p class="card-img-top amanuensis_uploaded_image"><img src="{{ url_for('static', filename='default.png')}}" alt="about" id="input"></p>
+										{% endif %}
+										<div class="card-body">
+											{% if caption %}
+											<p><h6 class="card-text description" id="caption">{{caption}}</h6></p>
+											{% else %}
+											<p class="card-text">Select an image at step 1.</p>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+	        </div>
+        </div>
+
+		
+        <!-- Footer -->
+        <footer>
+	        <div class="container">
+				<div class="row">
+                	<div class="col footer-top">
+		           		<center>&copy; 2021 <i class="fas fa-fire"></i></center>
+		           	</div>
+                </div>
+	        	<div class="row">
+                	<div class="col footer-bottom">
+		           		<a class="scroll-link" href="#top-content"><i class="fas fa-chevron-up"></i></a>
+		           	</div>
+                </div>
+	        </div>
+        </footer>
+				
+    </body>
+
+</html>
