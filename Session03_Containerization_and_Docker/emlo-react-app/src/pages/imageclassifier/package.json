@@ -1,0 +1,6 @@
+{
+  "name": "ImageClassifier",
+  "version": "0.0.0",
+  "main": "ImageClassifier.js",
+  "private": true
+}
